@@ -7,4 +7,4 @@ Changing membership status from Paid to Expired.
 Adding new users in DB table.
 
 ![2021-04-09-14-41-16_QGCvXP22_uSGM](https://user-images.githubusercontent.com/71831119/114182849-6ddd2480-9943-11eb-847a-123a7fdcd553.gif)
->>>>>>> 356f4abb80873b0203fa68a50289b0755f9af105
+
