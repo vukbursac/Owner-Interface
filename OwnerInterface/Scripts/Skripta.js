@@ -7,8 +7,7 @@
     var usersEndPoint = "/api/users";
     var usersUrl = "http://" + host + usersEndPoint;
 
-    var editingId;
-    var placeno;
+  
 
     //Prva stranica pri ucitavanju 
     $("#logoutDiv").css("display", "none");
@@ -24,13 +23,13 @@
 
     $("body").on("click", "#regBtn", loadRegistration);
     $("body").on("click", "#btnAlready", LoadLogin);
-
+    //-------------------------------------------------
     function LoadLogin() {
         $("#loginDiv").css("display", "block");
         $("#regForm").css("display", "none");
 
     }
-
+    //-----------------------------------------------
     function cleanForm() {
 
         $("#createInput2").val('');
@@ -39,17 +38,17 @@
 
     }
 
-   
+   //------------------------------------------------
     function loadRegistration() {
         $("#info").empty();
         $("#loginDiv").css("display", "none");
         $("#regForm").css("display", "block");
     }
 
-    //>>>>>>>> Load login form <<<<<<<<<<
+    //---------------------- Load login form--------------------------
     $("body").on("click", "#jumpToLogin", reset);
 
-    //>>>>>>>>>>>>>>> Reset/logout <<<<<<<<<<<<<<<
+    //-----------------------LOGOUT----------------------------
     function reset() {
         if (token != null) {
             token = null;
@@ -64,7 +63,7 @@
 
     }
 
-    //>>>>>>>>>>> Registration <<<<<<<<<<<
+    //----------------------------- REGISTRATION---------------------------
 
     $("#registration").submit(function (e) {
         e.preventDefault();
@@ -101,7 +100,7 @@
             alert("Your Registration failed! Try Again!");
         });
     });
-    //>>>>>>>>>>> Login <<<<<<<<<<<
+    //-----------------------LOGIN------------------------
 
     function ulogujSe() {
 
@@ -122,6 +121,7 @@
         }).done(function (data) {
             console.log(data);
             $.getJSON(usersUrl, setUsers);
+            $("#data").removeClass("hidden");
 
             $("#info").empty().append("Logged user: " + data.userName);
 
@@ -147,7 +147,7 @@
     };
 
 
-    //-------------------------------Edit membership status ------------------
+    //-------------------------------EDIT MEMBERSHIP STATUS ------------------
 
     function editUser() {
         var editId = this.name;
@@ -178,7 +178,7 @@
     
    
 
-    //>>>>>>>>>>>>>> Adding main entity(festival) <<<<<<<<<<<<<<<<<<<<<<<<<
+    //------------------------------ADDING MAIN ENTITY(USER)----------------------------
 
     $("#create").submit(function (e) {
 
@@ -231,6 +231,7 @@
 
     })
 
+    //--------------------------USERS IN TABLE--------------------------------------
     function setUsers(data, status) {
 
         var $container = $("#data");
@@ -287,7 +288,7 @@
             $container.append(div);
         }
     };
-
+    //-------------------------------DELETE-------------------------
     function deleteUser() {
         var deleteId = this.name;
         console.log(this.name);
